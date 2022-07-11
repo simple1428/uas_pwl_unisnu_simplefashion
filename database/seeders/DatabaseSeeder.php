@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Order;
 use App\Models\Produk;
 use App\Models\Category;
+use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -47,7 +48,7 @@ class DatabaseSeeder extends Seeder
 
         Cart::create( 
             [
-                'no_invoice' => 'asdfg',
+                'no_invoice' => 'SM-'.date('Y-m-d').'-'.Str::random(3),
                 'status' => 'cart',
                 'qty' => 1,
                 'user_id' => 1,
@@ -57,7 +58,7 @@ class DatabaseSeeder extends Seeder
             );
         Cart::create( 
             [
-                'no_invoice' => 'asdfg',
+                'no_invoice' => 'SM-'.date('Y-m-d').'-'.Str::random(3),
                 'status' => 'cart',
                 'user_id' => 1,
                 'qty' => 1,
@@ -66,26 +67,26 @@ class DatabaseSeeder extends Seeder
             ] 
             );
         User::create([
-            'name' => 'Muhamad Misbahudin',
-            'username' => 'misbah1428',
-            'email' => 'misbahudin1428@gmail.com',
+            'name' => 'Admin',
+            'username' => 'admin123',
+            'email' => 'admin@gmail.com',
             'no_hp' => '089619080300',
             'status' => '1',
             'password' => bcrypt('12345')
         ]);
         User::create([
-            'name' => "Ainun ni'mah",
-            'username' => 'ainun1428',
-            'email' => 'ainuen28@gmail.com',
+            'name' => "User",
+            'username' => 'user123',
+            'email' => 'user@gmail.com',
             'no_hp' => '089619080300',
-            'status' => '1',
+            'status' => '0',
             'password' => bcrypt('12345')
         ]);
         Order::create([
             'no_invoice' => "asdfg", 
             'user_id' => '1',
             'no_hp' => '089619080300',
-            'name' => "Ainun ni'mah",  
+            'name' => "misabahudin",  
             'provinsi' => "jawa tengah",  
             'kabupaten' => "jepara",  
             'kecamatan' => "donorojo",  
@@ -95,66 +96,6 @@ class DatabaseSeeder extends Seeder
             'status' => 'pesanan-baru', 
             'ongkir' => 15000,
             'jumlah' => 50000
-        ]);
-        Order::create([
-            'no_invoice' => "asdfg", 
-            'no_hp' => '089619080300',
-            'user_id' => '1',
-            'name' => "Muhamad Misbahudin",  
-            'provinsi' => "jawa tengah",  
-            'kabupaten' => "jepara",  
-            'kecamatan' => "donorojo",  
-            'alamat' => "jepara",  
-            'pembayaran' => "COD",  
-            'desa' => "tulakan",  
-            'ongkir' => 15000,
-            'status' => 'pesanan-diproses',  
-            'jumlah' => 100000
-        ]);
-        Order::create([
-            'no_invoice' => "asdfg", 
-            'no_hp' => '089619080300',
-            'user_id' => '1',
-            'name' => "Muhamad Misbahudin",  
-            'provinsi' => "jawa tengah",  
-            'kabupaten' => "jepara",  
-            'kecamatan' => "donorojo",  
-            'alamat' => "jepara",  
-            'pembayaran' => "COD",  
-            'desa' => "tulakan",  
-            'ongkir' => 15000,
-            'status' => 'pesanan-dikirim',  
-            'jumlah' => 100000
-        ]);
-        Order::create([
-            'no_invoice' => "asdfg", 
-            'no_hp' => '089619080300',
-            'user_id' => '1',
-            'name' => "Muhamad Misbahudin",  
-            'provinsi' => "jawa tengah",  
-            'kabupaten' => "jepara",  
-            'kecamatan' => "donorojo",  
-            'alamat' => "jepara",  
-            'pembayaran' => "COD",  
-            'desa' => "tulakan",  
-            'ongkir' => 15000,
-            'status' => 'pesanan-selesai',  
-            'jumlah' => 100000
-        ]);
-        Order::create([
-            'no_invoice' => "asdfg", 
-            'no_hp' => '089619080300',
-            'user_id' => '1',
-            'name' => "Muhamad Misbahudin",  
-            'provinsi' => "jawa tengah",  
-            'kabupaten' => "jepara",  
-            'kecamatan' => "donorojo",  
-            'desa' => "tulakan",  
-            'alamat' => "jepara",  
-            'pembayaran' => "COD",  
-            'ongkir' => 15000,
-            'status' => 'pesanan-dibatalkan',  
-            'jumlah' => 100000
         ]);
     }
 }
